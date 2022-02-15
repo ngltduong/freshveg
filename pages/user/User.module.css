@@ -1,0 +1,29 @@
+.show{
+  display: block;
+}
+
+.disable{
+  display: none;
+}
+
+.topSpacing{
+  margin-top: 70px;
+}
+
+.spaceInput{
+  padding: 12px;
+}
+
+.form-notify{
+  display: block;
+  font-size: 1.4rem;
+  margin: 8px 0;
+}
+
+.input-group.invalid .form-control{
+  border-color: rgb(255, 25, 25);
+}
+
+.input-group.invalid .form-notify{
+  color: rgb(255, 25, 25);
+}
