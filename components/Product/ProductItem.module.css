@@ -1,0 +1,21 @@
+.product .card{
+    margin: 10px auto;
+}
+
+.product .card-img-top{
+    height: 250px;
+    width: 100%;
+}
+
+.product .card-title{
+    overflow: hidden;
+    text-overflow: hidden;
+    white-space: nowrap;
+}
+
+.product .card-text{
+    height: 70px;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}

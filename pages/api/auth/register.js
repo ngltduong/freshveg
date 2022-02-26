@@ -1,6 +1,6 @@
 import connectDB from "../../../utils/connectDB"
 import Users from "../../../models/userModel"
-import validate from "../../../utils/valid"
+import {validRegister} from "../../../utils/valid"
 import bcrypt from 'bcrypt'
 
 connectDB()
@@ -16,7 +16,7 @@ export default async (req, res) => {
 const register = async (req, res) => {
     try{
         const {fullname, surname, email, password, phone} = req.body
-        const errMsg = validate(fullname, surname, email, password, phone)
+        const errMsg = validRegister(fullname, surname, email, password, phone)
         if(errMsg) return res.status(400).json({err: errMsg})
 
         const user = await Users.findOne({email})

@@ -1,4 +1,4 @@
-const valid = (fullname, surname, email, password, phone) =>{
+export const validUpdateUser = (fullname, surname, email, password, phone, cf_password) =>{
     if(!fullname || !surname ||!email || !password || !phone)
         return 'Please add all fields.'
     
@@ -6,9 +6,23 @@ const valid = (fullname, surname, email, password, phone) =>{
         return 'Invalid emails.'
 
     if(password.length < 6)
-        return 'Password must be at least 6 characters.'
+        return 'Password must be at least 6 characters.'    
     
+    if(cf_password !== password)
+        return 'Confirm password does not match.'
 }
+
+export const validRegister = (fullname, surname, email, password, phone) =>{
+    if(!fullname || !surname ||!email || !password || !phone)
+        return 'Please add all fields.'
+    
+    if(!validateEmail(email))
+        return 'Invalid emails.'
+
+    if(password.length < 6)
+        return 'Password must be at least 6 characters.'    
+}
+
 
 const validateEmail = (email) => {
     return String(email)
@@ -18,4 +32,3 @@ const validateEmail = (email) => {
       );
 };
 
-export default valid

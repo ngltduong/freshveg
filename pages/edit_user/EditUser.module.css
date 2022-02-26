@@ -1,0 +1,8 @@
+.edit_user{
+    border: 1px solid #eee;
+}
+
+.edit_user .maxWidth-30{
+    max-width: 90px;
+    width: 100%;
+}
