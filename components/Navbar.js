@@ -955,8 +955,8 @@ function Navbar() {
                                     <></>
                                     :
                                     navCategories.map(category => (
-                                        <Link href={`/products?category=${category._id}`}>
-                                            <a key={category._id} className="category-link">{category.name}</a>
+                                        <Link key={category._id} href={`/products?category=${category._id}`}>
+                                            <a  className="category-link">{category.name}</a>
                                         </Link>
                                     ))
                                 }
