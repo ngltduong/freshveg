@@ -1,6 +1,12 @@
+.product-page{
+    /* margin-top: 100px; */
+}
+
 .product{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px 50px;
     justify-content: center;
     margin: 20px 0;
 }
+

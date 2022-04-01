@@ -1,10 +1,13 @@
 import Head from 'next/head'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { getData } from '../../../utils/fetchData'
 import { DataContext } from '../../../store/GlobalState'
 import { addToCart } from '../../../store/Actions'
+import { useRouter } from 'next/router'
 const DetailProduct = (props) => {
-    const [product] = useState(props.product)
+    const [product, setProduct] = useState(props.product)
+
+    const router = useRouter()
 
     const [tab, setTab]= useState(0)
     const { state, dispatch } = useContext(DataContext)
@@ -12,6 +15,11 @@ const DetailProduct = (props) => {
 
     // const imgRef = useRef()
     
+    useEffect(()=> {
+        setProduct(props.product)
+    }, [props.product])
+
+
     //active tab Method 1: using add class 
     const isActive = idx => {
         if(tab === idx) return " active"

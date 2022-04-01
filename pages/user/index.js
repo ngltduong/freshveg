@@ -80,7 +80,7 @@ const User = () =>{
         }})
 
         Cookie.set('refreshtoken', res.refresh_token,{
-            path: 'api/auth/accessToken',
+             path: 'api/auth/accessToken',
             expires: 7
         })
 

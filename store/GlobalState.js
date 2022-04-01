@@ -12,7 +12,9 @@ export const DataProvider = ({children}) =>{
         modal: [], 
         orders: [], 
         users: [], 
-        categories: []
+        categories: [],
+        products: [],
+        scrollScreen: false,
     }
     const [state, dispatch] = useReducer(reducers, initialState)
     const { cart, auth } = state
@@ -38,6 +40,14 @@ export const DataProvider = ({children}) =>{
             dispatch({
                 type: "ADD_CATEGORIES",
                 payload: res.categories
+            })
+        })
+        getData('product/getAllProducts').then(res => {
+            if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
+
+            dispatch({
+                type: "ADD_PRODUCTS",
+                payload: res.products
             })
         })
     },[])

@@ -9,5 +9,8 @@ module.exports = {
     "CLOUD_UPDATE_PRESET": "freshveg_store",
     "CLOUD_NAME": "dnstudio",
     "CLOUD_API": "https://api.cloudinary.com/v1_1/dnstudio/image/upload",
+  },
+  images: {
+    domains: ['res.cloudinary.com', 'images.unsplash.com'],
   }
 }

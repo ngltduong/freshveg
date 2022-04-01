@@ -1,8 +1,7 @@
 import '../styles/globals.css'
 import Layout from '../components/Layout'
 import {DataProvider} from '../store/GlobalState'
-
-
+import styles from '../styles/globals.css'
 function MyApp({ Component, pageProps }) {
 
   return ( 

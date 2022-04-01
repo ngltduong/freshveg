@@ -37,6 +37,16 @@ const reducers = (state, action) => {
                 ...state,
                 categories: action.payload
             }
+        case ACTIONS.TOGGLE_SIDEBAR:
+            return {
+                ...state,
+                scrollScreen: action.payload
+            }
+        case ACTIONS.ADD_PRODUCTS:
+            return {
+                ...state,
+                products: action.payload
+            }
         default:
             return state
     }

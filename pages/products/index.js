@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import styled from "styled-components"
 import {useRouter} from 'next/router'
 import { useState, useContext, useEffect } from 'react'
 import { DataContext } from '../../store/GlobalState'
@@ -6,6 +7,26 @@ import { getData } from '../../utils/fetchData'
 import ProductItem from '../../components/Product/ProductItem'
 import filterSearch from '../../utils/filterSearch'
 import Filter from '../../components/Filter'
+import { Container } from '../../styles/Global.style'
+import {tablet, desktop} from '../../utils/responsive'
+
+const Header = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 110px 0;
+  background-color: #f4f3f0;
+`
+
+const Title = styled.div`
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  ${(tablet({
+    fontSize: "2.4rem",
+  }))}
+`
 
 const Product = (props) =>{
   const [products, setProducts] = useState(props.products)
@@ -64,10 +85,19 @@ const Product = (props) =>{
 
   return (
     <div className="product-page">
-      
       <Head>
         <title>Product Page</title>
       </Head>
+
+      <Header>
+        <Container className="flex center">
+          <Title>
+            Products
+          </Title>
+        </Container>
+      </Header>
+
+      <Container>
 
       <Filter state={state}/>
 
@@ -88,6 +118,7 @@ const Product = (props) =>{
 
       <div className="product">
         
+          
         {
           products.length === 0
           ? <h2>No Products</h2>
@@ -99,11 +130,13 @@ const Product = (props) =>{
       {
         props.result < page * 3 ? "" 
         : <button 
-        className="btn btn-outline-info d-block mx-auto mb-4"
+        className="btn btn-outline-success d-block mx-auto mb-4"
         onClick={handleLoadMore}
         >
           Load more</button>
       }
+      </Container>
+
     </div>
   )
 }
@@ -114,7 +147,7 @@ export async function getServerSideProps({query}) {
   const sort = query.sort || ''
   const search = query.search || 'all'
 
-  const res = await getData(`product?limit=${page*4}&category=${category}&sort=${sort}&title=${search}`)
+  const res = await getData(`product?limit=${page*3}&category=${category}&sort=${sort}&title=${search}`)
   // console.log(res)
   //server side rendering
   return {
