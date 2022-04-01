@@ -550,10 +550,10 @@ const Home = (props) =>{
         <div className="grid row col-4-sm">
           {
             dailyProducts.map(dailyProduct => (
-              <Column>
+              <Column key={dailyProduct._id}>
                 <Link href={`products/item/${dailyProduct.slug}`}>
                   <a>
-                    <DailyCart key={dailyProduct._id} dailyProduct={dailyProduct}/>
+                    <DailyCart dailyProduct={dailyProduct}/>
                   </a>
                 </Link>
               </Column>
@@ -580,7 +580,7 @@ const Home = (props) =>{
         {
           blogs.map(blog => (
             <>
-              <Column>
+              <Column key={blog._id}>
                 <Image width={300} height={300} layout="responsive" src={blog.thumbnail}/>
                 <BlogContent>
                   <BlogTitle>

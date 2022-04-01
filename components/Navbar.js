@@ -929,7 +929,7 @@ function Navbar() {
                                 <></>
                                 :
                                 bestSellProducts.sort((a, b) => b.sort - a.sort).filter((product, index) => index <= 3).map(product => (
-                                    <NavBestSellItem product={product}/>
+                                    <NavBestSellItem key={product._id} product={product}/>
                                 ))
                             }
                         </Container>
@@ -956,7 +956,7 @@ function Navbar() {
                                     :
                                     navCategories.map(category => (
                                         <Link href={`/products?category=${category._id}`}>
-                                            <a className="category-link">{category.name}</a>
+                                            <a key={category._id} className="category-link">{category.name}</a>
                                         </Link>
                                     ))
                                 }
@@ -970,7 +970,7 @@ function Navbar() {
                                 <></>
                                 :
                                 bestSellProducts.filter((product, index) => index <= 3).map(product => (
-                                    <NavBestSellItem product={product}/>
+                                    <NavBestSellItem key={product._id} product={product}/>
                                 ))
                                 }
                             </Column>
