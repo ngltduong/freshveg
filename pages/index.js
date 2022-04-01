@@ -619,7 +619,7 @@ const Home = (props) =>{
   )
 }
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
 
   const page =  2
   const category = 'all'
