@@ -1,8 +1,8 @@
 module.exports = {
   reactStrictMode: true,
   env:{
-    // "BASE_URL": "https://freshveg.vercel.app/",
-    "BASE_URL": "http://localhost:3000/",
+    "BASE_URL": "https://freshveg.vercel.app/",
+    // "BASE_URL": "http://localhost:3000/",
     "MONGODB_URL": "mongodb+srv://admin:duong123@cluster0.aazcf.mongodb.net/freshveg?retryWrites=true&w=majority",
     "ACCESS_TOKEN_SECRET": "4c9FwG{v9$[(3uvFg$E%$+(%!bhU6&vMKUsfNX_=jEg#&:5?B8",
     "REFRESH_TOKEN_SECRET": "DBC=v`vyFP_\"PY%N6zuzK=%`7&5BVW5.fjYn:eW&wbP?hRc?}K%^y$^9j=U>J\P~>T?pc\`Ts.='2\"}rU",
