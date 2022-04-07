@@ -208,27 +208,27 @@ const Sidebar = () => {
                 onClick={handleToggleSidebar}/> */}
             </Left>
             <Right>
-                <Link href="#">
+                <Link href="#" passHref>
                     <LinkStore >Find us in store</LinkStore>
                 </Link>
             </Right>
         </SidebarHeader>
-        <Link href="#">
+        <Link href="/products" passHref>
             <SidebarLink>
                 Best Sales
             </SidebarLink>
         </Link>
-        <Link href="#">
+        <Link href="/products" passHref>
             <SidebarLink>
                 Category
             </SidebarLink>
         </Link>
-        <Link href="#">
+        <Link href="/products" passHref>
             <SidebarLink>
                 New Products
             </SidebarLink>
         </Link>
-        <Link href="#">
+        <Link href="#" passHref>
             <SidebarLink>
                 Our Story
             </SidebarLink>

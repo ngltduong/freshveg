@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const NavBestSellItemCart = styled.div`
-    max-width: 272px;
+    max-width: 285px;
     width: 100%;
     height: auto;
     display: flex;

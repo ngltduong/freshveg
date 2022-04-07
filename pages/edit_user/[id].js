@@ -1,10 +1,12 @@
 import Head from 'next/head'
+import styled from 'styled-components'
 import { useContext, useState, useEffect} from 'react'
 import {DataContext} from '../../store/GlobalState'
 import { updateItem } from '../../store/Actions'
 import {patchData} from '../../utils/fetchData'
 import styles from './EditUser.module.css'
 import {useRouter} from 'next/router'
+import { Wrapper } from '../../styles/Global.style'
 
 const EditUser = () => {
     const router = useRouter()
@@ -49,7 +51,8 @@ const EditUser = () => {
     }
 
     return(
-        <div className="edit_user my-3 w-100">
+        <Wrapper>
+            <div className="edit_user my-3 w-100">
             <Head>
                 <title>Edit User</title>
             </Head>
@@ -113,7 +116,9 @@ const EditUser = () => {
                     Update
                 </button>
             </div>
-        </div>
+            </div>
+        </Wrapper>
+        
     )
 }
 

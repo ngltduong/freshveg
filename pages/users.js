@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useContext } from 'react'
 import { DataContext } from '../store/GlobalState'
 import Link from 'next/link'
+import { Wrapper } from '../styles/Global.style'
 
 const Users = () => {
     const { state, dispatch } = useContext(DataContext)
@@ -9,7 +10,8 @@ const Users = () => {
 
     if(!auth.user) return null
     return(
-        <div className="table-responsive">
+        <Wrapper>
+            <div className="table-responsive">
             <Head>
                 <title>
                     Users
@@ -77,9 +79,11 @@ const Users = () => {
                             </tr>
                         ))
                     }
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
+        </Wrapper>
+        
     )
 }
 

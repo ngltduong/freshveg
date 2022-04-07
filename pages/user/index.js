@@ -7,6 +7,7 @@ import {DataContext} from '../../store/GlobalState'
 import {postData} from '../../utils/fetchData'
 import Cookie from 'js-cookie'
 import {useRouter} from 'next/router'
+import { Wrapper } from '../../styles/Global.style'
 
 const User = () =>{
     const registerForm = "registerForm"
@@ -92,7 +93,7 @@ const User = () =>{
     }, [auth])
 
     return (
-        <>
+        <Wrapper>
         <Head>
             <title>User Page</title>
         </Head>
@@ -181,7 +182,7 @@ const User = () =>{
             </div>
            
             
-        </>
+        </Wrapper>
 
     )
 }

@@ -91,13 +91,17 @@ const NavLeft = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 26px;
+    /* padding-left: 26px; */
 `
 
 const NavRight = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    .nav-item{
+        display: none;
+        ${(desktop({display:"inline-block"}))}
+    }
 `
 const NavCenter = styled.div`
     display: flex;
@@ -144,6 +148,7 @@ const LogoImg = styled.a`
     position: absolute;
     height: 100%;
     width: 110px;
+    cursor: pointer;
     background-image: url(/FreshVeg.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -374,6 +379,7 @@ const CartLink = styled.a`
 
 const UserIcon = styled.div`
     display: none;
+    ${(desktop({display: "inline-block"}))}
 `
 
 const UserMenuItemLink = styled.a`
@@ -735,101 +741,103 @@ function Navbar() {
 
   const loggedRouter = () => {
         return(
-                // <li className="nav-item dropdown">
-                    
-                //         <a className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                //         <i className="fas fa-user"></i> {`${auth.user.fullname} ${auth.user.surname}`}
-                //         </a>
-                    
-                //     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                //         <li>
-                //             <Link href="/profile">
-                //                 <a className="dropdown-item">Profile</a>
-                //             </Link>
-                //         </li>
-                //         {
-                //             auth.user.role === 'admin' && adminRouter()
-                //         }
-                //         <div className="dropdown-divider"></div>
-                //         <li>
-                //             <button className="dropdown-item" onClick={handleLogout}>Log out</button>
-                //         </li>
-                //     </ul>
-                // </li>
             <>
-                <Tooltip title="Account settings">
-                <IconButton
-                  onClick={handleClick}
-                  size="small"
-                  sx={{ ml: 2 }}
-                  aria-controls={open ? 'account-menu' : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? 'true' : undefined}
-                >
-                  <Avatar sx={{ width: 32, height: 32 }}>{auth.user.avatar}</Avatar>
-                </IconButton>
-                </Tooltip>
-            
-                <Menu
-                anchorEl={anchorEl}
-                id="account-menu"
-                open={open}
-                onClose={handleClose}
-                onClick={handleClose}
-                PaperProps={{
-                    elevation: 0,
-                    sx: {
-                    overflow: 'visible',
-                    width: '180px',
-                    filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                    mt: 1.5,
-                    '& .MuiAvatar-root': {
-                        width: 32,
-                        height: 32,
-                        ml: -0.5,
-                        mr: 1,
-                    },
-                    '&:before': {
-                        content: '""',
-                        display: 'block',
-                        position: 'absolute',
-                        top: 0,
-                        right: 14,
-                        width: 10,
-                        height: 10,
-                        bgcolor: 'background.paper',
-                        transform: 'translateY(-50%) rotate(45deg)',
-                        zIndex: 0,
-                    },
-                    },
-                }}
-                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                >
-                <UserMenuItem>
-                    <Link href="/users">
-                        <UserMenuItemLink 
-                        // style={{display: "flex", alignItems: "center"}}
-                        > 
-                        <PersonIcon sx={{fontSize: "24px"}}/> 
-                        <span style={{marginLeft: "10px"}}>
-                            Profile 
-                        </span>  
-                        </UserMenuItemLink>
-                    </Link>
-                </UserMenuItem>
-                {
-                    auth.user && auth.user.role === 'admin' && adminRouter()
-                }
-                <Divider />
-                <UserMenuItem onClick={handleLogout}>
-                    <ListItemIcon>
-                        <Logout fontSize="small" />
-                    </ListItemIcon>
-                    Logout
-                </UserMenuItem>
-                </Menu>
+                <li className="nav-item dropdown">
+                    
+                        <a className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i className="fas fa-user"></i> {`${auth.user.fullname} ${auth.user.surname}`}
+                        </a>
+                    
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <Link href="/profile">
+                                <a className="dropdown-item">Profile</a>
+                            </Link>
+                        </li>
+                        {
+                            auth.user.role === 'admin' && adminRouter()
+                        }
+                        <div className="dropdown-divider"></div>
+                        <li>
+                            <button className="dropdown-item" onClick={handleLogout}>Log out</button>
+                        </li>
+                    </ul>
+                </li>
             </>
+            // <>            
+            //     <Tooltip title="Account settings">
+            //     <IconButton
+            //       onClick={handleClick}
+            //       size="small"
+            //       sx={{ ml: 2 }}
+            //       aria-controls={open ? 'account-menu' : undefined}
+            //       aria-haspopup="true"
+            //       aria-expanded={open ? 'true' : undefined}
+            //     >
+            //       <Avatar sx={{ width: 32, height: 32 }}>{auth.user.avatar}</Avatar>
+            //     </IconButton>
+            //     </Tooltip>
+            
+            //     <Menu
+            //     anchorEl={anchorEl}
+            //     id="account-menu"
+            //     open={open}
+            //     onClose={handleClose}
+            //     onClick={handleClose}
+            //     PaperProps={{
+            //         elevation: 0,
+            //         sx: {
+            //         overflow: 'visible',
+            //         width: '180px',
+            //         filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            //         mt: 1.5,
+            //         '& .MuiAvatar-root': {
+            //             width: 32,
+            //             height: 32,
+            //             ml: -0.5,
+            //             mr: 1,
+            //         },
+            //         '&:before': {
+            //             content: '""',
+            //             display: 'block',
+            //             position: 'absolute',
+            //             top: 0,
+            //             right: 14,
+            //             width: 10,
+            //             height: 10,
+            //             bgcolor: 'background.paper',
+            //             transform: 'translateY(-50%) rotate(45deg)',
+            //             zIndex: 0,
+            //         },
+            //         },
+            //     }}
+            //     transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+            //     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+            //     >
+            //     <UserMenuItem>
+            //         <Link href="/users">
+            //             <UserMenuItemLink 
+            //             // style={{display: "flex", alignItems: "center"}}
+            //             > 
+            //             <PersonIcon sx={{fontSize: "24px"}}/> 
+            //             <span style={{marginLeft: "10px"}}>
+            //                 Profile 
+            //             </span>  
+            //             </UserMenuItemLink>
+            //         </Link>
+            //     </UserMenuItem>
+            //     {
+            //         auth.user && auth.user.role === 'admin' && adminRouter()
+            //     }
+            //     <Divider />
+            //     <UserMenuItem onClick={handleLogout}>
+            //         <ListItemIcon>
+            //             <Logout fontSize="small" />
+            //         </ListItemIcon>
+            //         Logout
+            //     </UserMenuItem>
+            //     </Menu>
+            // </>
         )
   }
 
@@ -922,7 +930,7 @@ function Navbar() {
                         // onMouseLeave={() => setIsShownBestSellItem(false)}
                         // ref={node => navBestItemPopup.current = node}
                         >
-                        <Container className="navPopup">
+                        <Container className="navPopup px-12">
                             {
                                 
                                 bestSellProducts === null ?
@@ -945,7 +953,7 @@ function Navbar() {
                             className="PopupItem"
 
                         >
-                        <Container className="flex">
+                        <Container className="flex px-12">
                             <Column
                                 className="col-2-4"
                             >
@@ -994,10 +1002,25 @@ function Navbar() {
                </NavMenuList>
            </NavCenter>
            <NavRight className="col col-1-3">
-               <SearchBtn 
-               style={{color: "darkgreen", fontSize: "1.8rem", cursor: "pointer"}}
-               
-               />
+                {
+                    Object.keys(auth).length === 0 ?
+                    <UserIcon>
+                    <Link href="/user">
+                        <a className={isActive('/user')} >
+                            <User/>
+                        </a>
+                    </Link>
+                    </UserIcon>
+                    : loggedRouter()
+                }
+                <Link href="/products">
+                    <a>
+                        <SearchBtn 
+                        style={{color: "darkgreen", fontSize: "1.8rem", cursor: "pointer", marginLeft: "10px"}}
+                        
+                        />
+                    </a>
+                </Link>
                <CartWrapper>
                 <Link href="/cart">
                     <CartLink  style={{position: 'relative'}} className={isActive('/cart')}
@@ -1054,17 +1077,7 @@ function Navbar() {
                         </CartPopupFooter>
                         </CartPopupWrapper>        
                     
-                {
-                    Object.keys(auth).length === 0 ?
-                    <UserIcon>
-                    <Link href="/user">
-                        <a className={isActive('/user')} >
-                            <User/>
-                        </a>
-                    </Link>
-                    </UserIcon>
-                    : loggedRouter()
-                }
+                
                 
            </NavRight>
            </Container>  

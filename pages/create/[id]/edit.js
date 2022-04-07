@@ -6,6 +6,7 @@ import { imageUpload } from '../../../utils/imageUpload'
 import { postData, getData, putData } from "../../../utils/fetchData"
 import { StringToSlug } from "../../../utils/stringToSlug"
 import styles from '../ProductManager.module.css'
+import { Wrapper } from "../../../styles/Global.style"
 
 const ProductsManager = () => {
     const initialState = {
@@ -138,7 +139,8 @@ const ProductsManager = () => {
     // }
 
     return(
-        <div className="products_manager">
+        <Wrapper>
+            <div className="products_manager">
             <Head>
                 <title>Product Manager</title>
             </Head>
@@ -228,6 +230,8 @@ const ProductsManager = () => {
                 </div>
             </form>
         </div>
+        </Wrapper>
+        
     )
 }
 

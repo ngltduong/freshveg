@@ -5,6 +5,8 @@ import { DataContext } from "../store/GlobalState"
 import CartItem  from "../components/CartItem"
 import { getData, postData } from "../utils/fetchData"
 import { useRouter } from 'next/router'
+import { Wrapper, Container } from '../styles/Global.style'
+
 
 const Cart = () =>{
     const { state, dispatch } = useContext(DataContext) 
@@ -97,65 +99,75 @@ const Cart = () =>{
             })
     }
 
-    if(cart.length === 0) return <h2>Not Empty!</h2>
+    if(cart.length === 0) return (
+    <Wrapper>
+        <h2>No Item!</h2>
+    </Wrapper>
+    
+    )
 
     return (
-        <div className="row mx-auto">
-            <Head>
-                <title>Cart Page</title>
-            </Head>
-            <div className="col-md-8 text-secondary table-responsive my-3"> 
-                <h2 className="text-uppercase">Shopping Cart</h2>
-                <table className="table my-3">
-                    <tbody>
-                        {
-                            cart.map(item => (
-                                <CartItem 
-                                    key={item._id} 
-                                    item={item} 
-                                    dispatch={dispatch} 
-                                    cart={cart}
-                                />
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </div>
+        <Wrapper>
+            <Container>
 
-            <div className="col-md-4 my-3 text-end text-uppercase text-secondary">
-                <form>
-                    <h2>Shipping</h2>
-                    <label htmlFor="address">Address</label>
-                    <input type="text" name="address" id="address"
-                    className="form-control mb-2" value={address}
-                    onChange={e => setAddress(e.target.value)}
-                    />
-                    <label htmlFor="mobile">Mobile</label>
-                    <input type="text" name="mobile" id="mobile"
-                    className="form-control mb-2" value={mobile}
-                    onChange={e => setMobile(e.target.value)}
-                    />
-                </form>
-                <h3>Total: <span className="text-danger">{total}</span></h3>
-                {
-                    // payment
-                    // ? <PaypalBtn 
-                    //     total={total}
-                    //     address={address}
-                    //     mobile={mobile}
-                    //     state={state}
-                    //     dispatch={dispatch}
-                    //     />
-                    // : 
-                    <Link href={auth.user ? '#!' : '/user'}>
-                        <a className="btn btn-primary my-2"
-                            onClick={handlePayment}
-                        >Proceed with payment</a>
-                      </Link>
-                }
-                
-            </div>
-        </div>
+                <div className="row mx-auto">
+                    <Head>
+                        <title>Cart Page</title>
+                    </Head>
+                    <div className="col-md-8 text-secondary table-responsive my-3"> 
+                        <h2 className="text-uppercase">Shopping Cart</h2>
+                        <table className="table my-3">
+                            <tbody>
+                                {
+                                    cart.map(item => (
+                                        <CartItem 
+                                            key={item._id} 
+                                            item={item} 
+                                            dispatch={dispatch} 
+                                            cart={cart}
+                                        />
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="col-md-4 my-3 text-end text-uppercase text-secondary">
+                        <form>
+                            <h2>Shipping</h2>
+                            <label htmlFor="address">Address</label>
+                            <input type="text" name="address" id="address"
+                            className="form-control mb-2" value={address}
+                            onChange={e => setAddress(e.target.value)}
+                            />
+                            <label htmlFor="mobile">Mobile</label>
+                            <input type="text" name="mobile" id="mobile"
+                            className="form-control mb-2" value={mobile}
+                            onChange={e => setMobile(e.target.value)}
+                            />
+                        </form>
+                        <h3>Total: <span className="text-danger">{total}</span></h3>
+                        {
+                            // payment
+                            // ? <PaypalBtn 
+                            //     total={total}
+                            //     address={address}
+                            //     mobile={mobile}
+                            //     state={state}
+                            //     dispatch={dispatch}
+                            //     />
+                            // : 
+                            <Link href={auth.user ? '#!' : '/user'}>
+                                <a className="btn btn-primary my-2"
+                                    onClick={handlePayment}
+                                >Proceed with payment</a>
+                            </Link>
+                        }
+                        
+                    </div>
+                </div>
+            </Container>
+        </Wrapper>
     )
 }
 

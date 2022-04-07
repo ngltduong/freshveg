@@ -5,8 +5,8 @@ import {tablet, desktop, largeScreen} from "../utils/responsive"
 export const Container = styled.div`
     /* margin-left: 28px;
     margin-right: 28px; */
-    padding-left: 28px;
-    padding-right: 28px;
+    /* padding-left: 28px;
+    padding-right: 28px; */
     width: 100%;
     margin: 0 auto;
     position:   relative;
@@ -76,7 +76,9 @@ export const Container = styled.div`
     ${(largeScreen({width: "1248px"}))}
 `
 
-export const Grid = styled.div`
+export const Wrapper = styled.div`
+    padding-top: 100px;
+    padding-bottom: 80px;
 
 `
 

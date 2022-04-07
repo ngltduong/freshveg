@@ -3,6 +3,7 @@ import { useContext, useState } from 'react'
 import { DataContext } from '../store/GlobalState'
 import { updateItem } from '../store/Actions'
 import { postData, putData } from '../utils/fetchData'
+import { Wrapper } from '../styles/Global.style'
 
 const Categories = () => {
     const [name, setName] = useState('')
@@ -43,7 +44,8 @@ const Categories = () => {
     }
 
     return(
-        <div className="col-md-6 mx-auto my-3">
+        <Wrapper>
+            <div className="col-md-6 mx-auto my-3">
             <Head>
                 <title>Categories</title>
             </Head>
@@ -80,8 +82,10 @@ const Categories = () => {
                         </div>
                     </div>
                 ))
-            }
-        </div>
+             }
+            </div>
+        </Wrapper>
+        
     )
 }
 

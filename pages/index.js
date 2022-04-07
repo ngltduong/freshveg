@@ -468,7 +468,9 @@ const Home = (props) =>{
          {/* <div className="clear-fix"></div> */}
         
         <BestSellFooter>
-          <BtnLink color={'#357a38'} backgroundColor={'transparent'}>SEE ALL</BtnLink>
+          <Link href="/products" passHref>
+            <BtnLink color={'#357a38'} backgroundColor={'transparent'}>SEE ALL</BtnLink>
+          </Link>
           {/* <div className='swiper-button-next'></div> */}
         </BestSellFooter>
     </BestSellSection>
@@ -506,7 +508,7 @@ const Home = (props) =>{
        </Link>
     </IconsSection>
       <DailyHeader>
-        <Container className="flex center">
+        <Container className="flex center px-12">
             <DailySeclector onClick={handleToggleDailyList} >
               <DailyListSelected>{dailySort}
                 {
@@ -534,19 +536,21 @@ const Home = (props) =>{
             </DailySeclector>
             {
               !isMobile &&
-              <ShopBtn 
-                  color={'black'} 
-                  backgroundColor={'white'} 
-                >
-                  See All
-              </ShopBtn>
+              <Link href="/products" passHref>
+                <ShopBtn 
+                    color={'black'} 
+                    backgroundColor={'white'} 
+                  >
+                    See All
+                </ShopBtn>
+              </Link>
             }
             
             
           </Container>
       </DailyHeader>
     <DailySection>
-      <Container>
+      <Container className="px-12">
         <div className="grid row col-4-sm">
           {
             dailyProducts.map(dailyProduct => (
@@ -565,13 +569,15 @@ const Home = (props) =>{
     {
       isMobile &&
       <DailyFooter>
-        <BtnLink 
-            color={'white'} 
-            backgroundColor={'#357a38'} 
-            opacity={'0.6'}
-          >
-            See All
-        </BtnLink>
+        <Link href="/products" passHref>
+          <BtnLink 
+              color={'white'} 
+              backgroundColor={'#357a38'} 
+              opacity={'0.6'}
+            >
+              See All
+          </BtnLink>
+        </Link>
       </DailyFooter>
     }
     
@@ -619,7 +625,7 @@ const Home = (props) =>{
   )
 }
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
 
   const page =  2
   const category = 'all'
