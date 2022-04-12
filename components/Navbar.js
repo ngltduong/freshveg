@@ -402,7 +402,7 @@ const CartPopupWrapper = styled.div`
     position: absolute;
     width: 340px;
     top: calc(100% - 12px);
-    right: 38px;
+    right: 20px;
     display: none;
     background-color: #fff;
     border-radius: 2px;
@@ -913,7 +913,7 @@ function Navbar() {
                 </LogoCenter>
                <NavMenuList>
                    <NavMenuItem>
-                       <Link href="/">
+                       <Link href="/products?search=all&sort=-sold">
                             <a 
                                 // onMouseOver={() => setIsShownBestSellItem(true)}
                                 // onMouseOut={(e) => {
@@ -944,7 +944,7 @@ function Navbar() {
                     </NavMenuPopup>
                    </NavMenuItem>
                    <NavMenuItem>
-                        <Link href="/">
+                        <Link href="/products">
                                 <a
                                     className="subline"
                                 >Shop</a>                    

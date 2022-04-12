@@ -19,8 +19,9 @@ const DetailProduct = (props) => {
 
     const [contentProduct, setContentProduct] = useState('')
 
-    // const imgRef = useRef()
-    
+    const productContentLength = product.content.length
+
+    console.log(productContentLength)
     useEffect(()=> {
         setProduct(props.product)
     }, [props.product])
@@ -116,15 +117,23 @@ const DetailProduct = (props) => {
                     <div className={`product-content ${isReadMore ? "hide-content" : ""}`}>
                         {product.content}
                     </div>
-                    <div className="mx-auto">
+                    {
+
+                        productContentLength > 1000 && 
+                        (<div className="mx-auto">
                         <btn
                         onClick={handleReadMore}
                         type="button" 
                         className="btn btn-outline-success d-block my-3 fw-bolder text-uppercase"
                         >
-                            {isReadMore ? "Read More" : "Read Less"}
+                            {
+                                   
+                                isReadMore ? "Read More" : "Read Less"
+                            }
                         </btn>
-                    </div>
+                        </div>)
+                    }
+                    
                 </div>
                 <div className="col-md-4">
 
